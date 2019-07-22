@@ -24,12 +24,26 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/Theme"
             ],
             "styles": [
+              "src/Theme/css/bootstrap.min.css",
+              "src/Theme/font-awesome/css/font-awesome.css",
+              "src/Theme/css/plugins/iCheck/custom.css",
+              "src/Theme/css/animate.css",
+              "src/Theme/css/style.css",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/Theme/js/jquery-2.1.1.js",
+              "src/Theme/js/bootstrap.min.js",
+              "src/Theme/js/plugins/iCheck/icheck.min.js",
+              "src/Theme/js/plugins/metisMenu/jquery.metisMenu.js",
+              "src/Theme/js/plugins/slimscroll/jquery.slimscroll.min.js",
+              "src/Theme/js/inspinia.js",
+              "src/Theme/js/plugins/pace/pace.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
