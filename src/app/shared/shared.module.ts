@@ -37,8 +37,8 @@ export class SharedModule implements AfterViewInit {
   constructor(private dynamicScriptLoader: JavascriptLoaderService) { }
 
   ngAfterViewInit() {
-    this.loadScripts();
-    jQuery('#side-menu').metisMenu();
+    // this.loadScripts();
+    // jQuery('#side-menu').metisMenu();
   }
 
   private loadScripts() {

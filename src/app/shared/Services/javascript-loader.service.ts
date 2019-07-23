@@ -11,7 +11,7 @@ export const ScriptStore: Scripts[] = [
   { name: 'metisMenu', src: './Theme/js/plugins/metisMenu/jquery.metisMenu.js' },
   { name: 'slimscroll', src: './Theme/js/plugins/slimscroll/jquery.slimscroll.min.js' },
   { name: 'inspinia', src: './Theme/js/inspinia.js' },
-  // { name: 'pace', src: './Theme/js/plugins/pace/pace.min.js' }
+  { name: 'pace', src: './Theme/js/plugins/pace/pace.min.js' }
 ];
 
 declare var document: any;

@@ -14,10 +14,16 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
 
   ngOnInit() { }
 
-  ngAfterViewInit() {
+  ngAfterViewInit() {    
+    // this.loadScripts();
+    // jQuery('#side-menu').metisMenu();   
     
-    this.loadScripts();
-    jQuery('#side-menu').metisMenu();    
+    // Minimalize menu
+    jQuery('.navbar-minimalize').click(function () {
+      jQuery("body").toggleClass("mini-navbar");
+      this.SmoothlyMenu();
+  });
+
   }
 
   private loadScripts() {
@@ -25,6 +31,27 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
     this.dynamicScriptLoader.load('JQuery-2.1.1','metisMenu').then(data => {
       // Script Loaded Successfully
     }).catch(error => console.log(error));
+  }
+
+  private SmoothlyMenu() {
+    if (!jQuery('body').hasClass('mini-navbar') || jQuery('body').hasClass('body-small')) {
+      // Hide menu in order to smoothly turn on when maximize menu
+      jQuery('#side-menu').hide();
+      // For smoothly turn on menu
+      setTimeout(
+        function () {
+          jQuery('#side-menu').fadeIn(400);
+        }, 200);
+    } else if (jQuery('body').hasClass('fixed-sidebar')) {
+      jQuery('#side-menu').hide();
+      setTimeout(
+        function () {
+          jQuery('#side-menu').fadeIn(400);
+        }, 100);
+    } else {
+      // Remove all inline style from jquery fadeIn function to reset menu state
+      jQuery('#side-menu').removeAttr('style');
+    }
   }
 
 }
