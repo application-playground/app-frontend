@@ -6,6 +6,7 @@ import { RegistrationComponent } from './shared/registration/registration.compon
 import { HomeComponent } from './Administrator/home/home.component';
 import { ForgetPasswordComponent } from './shared/forget-password/forget-password.component';
 import { HTTP500Component } from './shared/Error/http500/http500.component';
+import { EmptyPageComponent } from './Administrator/empty-page/empty-page.component';
 
 const routes: Routes = [
   // Super-admin routes goes here
@@ -32,14 +33,14 @@ const routes: Routes = [
   
   {
     path: 'template', component: HomeComponent,
-    // children: [
-    //   { path: 'dashboard-first', component: DashboardFirstComponent },      
-    //   { path: 'forms', loadChildren: './Layout/Content-Page/form-section/form-section.module#FormSectionModule' },
-    //   { path: 'app-view', loadChildren: './Layout/Content-Page/app-view/app-view.module#AppViewModule' },
-    //   { path: 'other-view', loadChildren: './Layout/Content-Page/other-page/other-page.module#OtherPageModule' },
-    //   { path: 'miss', loadChildren: './Layout/Content-Page/Miscellaneous-Section/miscellaneous-section.module#MiscellaneousSectionModule' },
-    //   { path: 'ui-view', loadChildren: './Layout/Content-Page/uielement-section/uielement-section.module#UIElementSectionModule' }
-    // ]
+    children: [
+      { path: 'empty', component: EmptyPageComponent },      
+      // { path: 'forms', loadChildren: './Layout/Content-Page/form-section/form-section.module#FormSectionModule' },
+      // { path: 'app-view', loadChildren: './Layout/Content-Page/app-view/app-view.module#AppViewModule' },
+      // { path: 'other-view', loadChildren: './Layout/Content-Page/other-page/other-page.module#OtherPageModule' },
+      // { path: 'miss', loadChildren: './Layout/Content-Page/Miscellaneous-Section/miscellaneous-section.module#MiscellaneousSectionModule' },
+      // { path: 'ui-view', loadChildren: './Layout/Content-Page/uielement-section/uielement-section.module#UIElementSectionModule' }
+    ]
   },
   
   // Content Page Redirection

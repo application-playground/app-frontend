@@ -1,0 +1,14 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>{{title}}</h2>    
+    <ol class="breadcrumb">
+      <li *ngFor="let item of path" [ngClass]="{active: item.isActive == true}">
+        <a *ngIf="item.url != '' && item.isActive == false" [routerLink]="['/' + item.url]" >{{item.name}}</a>
+        <a *ngIf="item.url == '' && item.isActive == false" >{{item.name}}</a>
+        <strong *ngIf="item.url == '' && item.isActive == true">{{item.name}}</strong>
+      </li>      
+    </ol>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>

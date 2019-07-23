@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './Administrator/home/home.component';
+import { EmptyPageComponent } from './Administrator/empty-page/empty-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    EmptyPageComponent
   ],
   imports: [
     BrowserModule,

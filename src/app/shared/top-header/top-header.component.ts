@@ -20,8 +20,7 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
     
     // Minimalize menu
     jQuery('.navbar-minimalize').click(function () {
-      jQuery("body").toggleClass("mini-navbar");
-      
+      jQuery("body").toggleClass("mini-navbar");      
 
       if (!jQuery('body').hasClass('mini-navbar') || jQuery('body').hasClass('body-small')) {
         // Hide menu in order to smoothly turn on when maximize menu

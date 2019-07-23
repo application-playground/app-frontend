@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { HTTP404Component } from './Error/http404/http404.component';
 import { HTTP500Component } from './Error/http500/http500.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 declare var jQuery: any;
 
@@ -20,7 +21,11 @@ declare var jQuery: any;
     , RegistrationComponent
     , LeftMenuComponent  
     , TopHeaderComponent  
-    , FooterComponent, ForgetPasswordComponent, HTTP404Component, HTTP500Component
+    , FooterComponent
+    , ForgetPasswordComponent
+    , HTTP404Component
+    , HTTP500Component
+    , BreadcrumbComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +37,10 @@ declare var jQuery: any;
     , LeftMenuComponent  
     , TopHeaderComponent  
     , FooterComponent
+    , ForgetPasswordComponent
+    , HTTP404Component
+    , HTTP500Component
+    , BreadcrumbComponent
   ],
   providers: [ JavascriptLoaderService ]
 })
