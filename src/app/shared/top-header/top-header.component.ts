@@ -14,13 +14,13 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
 
   ngOnInit() { }
 
-  ngAfterViewInit() {    
+  ngAfterViewInit() {
     // this.loadScripts();
     // jQuery('#side-menu').metisMenu();   
-    
+
     // Minimalize menu
     jQuery('.navbar-minimalize').click(function () {
-      jQuery("body").toggleClass("mini-navbar");      
+      jQuery("body").toggleClass("mini-navbar");
 
       if (!jQuery('body').hasClass('mini-navbar') || jQuery('body').hasClass('body-small')) {
         // Hide menu in order to smoothly turn on when maximize menu
@@ -41,13 +41,13 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
         jQuery('#side-menu').removeAttr('style');
       }
 
-  });
+    });
 
   }
 
   private loadScripts() {
     // You can load multiple scripts by just providing the key as argument into load method of the service
-    this.dynamicScriptLoader.load('JQuery-2.1.1','metisMenu').then(data => {
+    this.dynamicScriptLoader.load('JQuery-2.1.1', 'metisMenu').then(data => {
       // Script Loaded Successfully
     }).catch(error => console.log(error));
   }

@@ -23,6 +23,7 @@ const routes: Routes = [
   // { path: 'register', component: RegisterComponent },
 
   // Application Template routes goes here
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
   // { path: 'simple-login', component: SimpleLoginComponent },
   { path: 'register', component: RegistrationComponent },  
