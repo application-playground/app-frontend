@@ -1,8 +1,11 @@
+import { HTTP404Component } from './shared/Error/http404/http404.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './shared/login/login.component';
 import { RegistrationComponent } from './shared/registration/registration.component';
 import { HomeComponent } from './Administrator/home/home.component';
+import { ForgetPasswordComponent } from './shared/forget-password/forget-password.component';
+import { HTTP500Component } from './shared/Error/http500/http500.component';
 
 const routes: Routes = [
   // Super-admin routes goes here
@@ -21,12 +24,11 @@ const routes: Routes = [
   // Application Template routes goes here
   { path: 'login', component: LoginComponent },
   // { path: 'simple-login', component: SimpleLoginComponent },
-  { path: 'register', component: RegistrationComponent },
-  
-  // { path: 'forget-password', component: ForgetPasswordComponent },
+  { path: 'register', component: RegistrationComponent },  
+  { path: 'forget-password', component: ForgetPasswordComponent },
   // { path: 'lock-screen', component: LockScreenComponent },
-  // { path: '404', component: Error404Component },
-  // { path: '500', component: Error500Component },
+  { path: '404', component: HTTP404Component },
+  { path: '500', component: HTTP500Component },
   
   {
     path: 'template', component: HomeComponent,

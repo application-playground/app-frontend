@@ -8,6 +8,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { HTTP404Component } from './Error/http404/http404.component';
+import { HTTP500Component } from './Error/http500/http500.component';
 
 declare var jQuery: any;
 
@@ -17,7 +20,7 @@ declare var jQuery: any;
     , RegistrationComponent
     , LeftMenuComponent  
     , TopHeaderComponent  
-    , FooterComponent
+    , FooterComponent, ForgetPasswordComponent, HTTP404Component, HTTP500Component
   ],
   imports: [
     CommonModule,
