@@ -31,6 +31,7 @@
               "src/Theme/css/bootstrap.min.css",
               "src/Theme/font-awesome/css/font-awesome.css",
               "src/Theme/css/plugins/iCheck/custom.css",
+              "src/Theme/css/plugins/dataTables/datatables.min.css" ,
               "src/Theme/css/animate.css",
               "src/Theme/css/style.css",
               "src/styles.scss"
@@ -41,6 +42,8 @@
               "src/Theme/js/plugins/iCheck/icheck.min.js",
               "src/Theme/js/plugins/metisMenu/jquery.metisMenu.js",
               "src/Theme/js/plugins/slimscroll/jquery.slimscroll.min.js",
+              "src/Theme/js/plugins/jeditable/jquery.jeditable.js",
+              "src/Theme/js/plugins/dataTables/datatables.min.js",
               "src/Theme/js/inspinia.js",
               "src/Theme/js/plugins/pace/pace.min.js"
             ],

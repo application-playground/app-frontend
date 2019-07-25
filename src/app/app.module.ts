@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './Administrator/home/home.component';
 import { EmptyPageComponent } from './Administrator/empty-page/empty-page.component';
+import { TableDemoComponent } from './Administrator/table-demo/table-demo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    EmptyPageComponent
+    EmptyPageComponent,
+    TableDemoComponent
   ],
   imports: [
     BrowserModule,
