@@ -1,3 +1,4 @@
+import { MatTableComponent } from './Administrator/mat-table/mat-table.component';
 import { HTTP404Component } from './shared/Error/http404/http404.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -37,7 +38,8 @@ const routes: Routes = [
     path: 'template', component: HomeComponent,
     children: [
       { path: 'empty', component: EmptyPageComponent },    
-      { path: 'demo-table', component: TableDemoComponent }    
+      { path: 'demo-table', component: TableDemoComponent },
+      { path: 'mat-table', component: MatTableComponent }
       // { path: 'forms', loadChildren: './Layout/Content-Page/form-section/form-section.module#FormSectionModule' },
       // { path: 'app-view', loadChildren: './Layout/Content-Page/app-view/app-view.module#AppViewModule' },
       // { path: 'other-view', loadChildren: './Layout/Content-Page/other-page/other-page.module#OtherPageModule' },
