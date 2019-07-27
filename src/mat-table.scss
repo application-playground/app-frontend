@@ -1,0 +1,85 @@
+table.mat-table {
+    border-spacing: 0;
+    width: 100% !important;
+    border:1px solid lightgray; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;   
+    margin-bottom: 0px !important;
+}
+
+tr.mat-header-row {
+    height: 24px !important;
+    background-color: rgb(97%, 97%, 97%) !important;
+}
+
+th.mat-header-cell {
+    text-align: left;
+    font-size: 13px;
+    color: rgb(103, 106, 108);
+    font-size:14px !important;
+    padding: 5px 0px 5px 24px !important;
+    border:1px solid lightgray !important;
+}
+
+  td.mat-header-cell {
+    text-align: left;
+    color:black !important;
+    font-size:14px !important;
+    padding: 5px 0px 5px 24px !important;
+  }
+
+  td.mat-cell {
+      color:black !important;
+  }
+
+
+table>tbody>tr.mat-row:nth-of-type(odd) {
+    background-color: red;
+}  
+
+
+tr.mat-row, tr.mat-footer-row {
+    height: 24px !important;
+    background-color: white !important;    
+}
+
+td {
+    border-top: 1px solid rgb(231, 234, 236);
+    line-height: 1.42857;
+    padding: 8px;
+    vertical-align: top;
+    border:1px solid lightgray !important;
+}
+
+
+
+  
+  th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    padding: 5px 0px 5px 24px !important;
+    border-bottom-width: 01px;
+    border-bottom-style: solid;
+  }
+
+/* PAGINATION STYLES */
+
+.mat-paginator.mat-paginator {
+    color: rgb(103, 106, 108);
+    border: 1px solid rgb(211, 211, 211);
+    padding: 0px 1px 1px 1px !important;
+    background-color: white !important;    
+}
+
+.mat-select-panel { background-color: rgb(243, 243, 244) !important;  }
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) { 
+    color: rgb(176, 177, 178) !important; 
+    background-color: gray !important; 
+}
+
+.mat-select-panel .mat-option { 
+    color: rgb(176, 177, 178) !important; 
+    font-weight: 600 !important; 
+}
+
+.mat-form-field-flex { color: red !important;}
+.mat-icon-button .mat-button-wrapper>* { color: rgb(176, 177, 178) !important; }
+ .mat-paginator-outer-container { background-color: rgb(247, 247, 247) !important; }
