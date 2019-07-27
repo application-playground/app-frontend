@@ -9,6 +9,7 @@ import { ForgetPasswordComponent } from './shared/forget-password/forget-passwor
 import { HTTP500Component } from './shared/Error/http500/http500.component';
 import { EmptyPageComponent } from './Administrator/empty-page/empty-page.component';
 import { TableDemoComponent } from './Administrator/table-demo/table-demo.component';
+import { AuthGuard } from './security/auth.guard';
 
 const routes: Routes = [
   // Super-admin routes goes here
@@ -35,7 +36,7 @@ const routes: Routes = [
   { path: '500', component: HTTP500Component },
   
   {
-    path: 'template', component: HomeComponent,
+    path: 'template', component: HomeComponent, canActivate: [AuthGuard], 
     children: [
       { path: 'empty', component: EmptyPageComponent },    
       { path: 'demo-table', component: TableDemoComponent },

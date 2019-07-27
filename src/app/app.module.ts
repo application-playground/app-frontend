@@ -18,6 +18,9 @@ import { HomeComponent } from './Administrator/home/home.component';
 import { EmptyPageComponent } from './Administrator/empty-page/empty-page.component';
 import { TableDemoComponent } from './Administrator/table-demo/table-demo.component';
 import { MatTableComponent } from './Administrator/mat-table/mat-table.component';
+import { JwtInterceptor } from './interceptor/jwt.interceptor';
+import { ErrorInterceptor } from './interceptor/error.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { MatTableComponent } from './Administrator/mat-table/mat-table.component
     MaterialModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,6 +12,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { HTTP404Component } from './Error/http404/http404.component';
 import { HTTP500Component } from './Error/http500/http500.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 declare var jQuery: any;
 
@@ -29,6 +31,9 @@ declare var jQuery: any;
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     SharedRoutingModule
   ],
   exports: [
