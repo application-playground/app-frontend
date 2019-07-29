@@ -21,7 +21,7 @@ import { MatTableComponent } from './Administrator/mat-table/mat-table.component
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -39,6 +39,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     MatNativeDateModule,
     AppRoutingModule,
     MaterialModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      disableTimeOut: false,
+      progressBar: true,
+      tapToDismiss: false
+    }),
     SharedModule
   ],
   providers: [

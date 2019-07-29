@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuhenticationService } from 'src/app/services/auhentication.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 //import { AlertService, AuthenticationService } from '../_services';
 
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuhenticationService,
-    // private alertService: AlertService
+    private alertService: NotificationService
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.authenticationService.logout();
 
   }
 
@@ -61,12 +63,14 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          if (data['success']) {
+          if (data['status']) {
+            this.alertService.success(data['message'], data['user']['name']);
             this.router.navigate(['/template']);  
+            this.loading = false;
           } else {
-            
-          }
-          
+            this.alertService.error(data['message'], data['user']['email']);
+            this.loading = false;
+          }          
         }
         , error => {
           //this.alertService.error(error);
