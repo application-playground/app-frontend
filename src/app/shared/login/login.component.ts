@@ -61,10 +61,16 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
-        },
-        error => {
+          if (data['success']) {
+            this.router.navigate(['/template']);  
+          } else {
+            
+          }
+          
+        }
+        , error => {
           //this.alertService.error(error);
+          this.router.navigate([this.returnUrl]);
           this.loading = false;
         });
   }

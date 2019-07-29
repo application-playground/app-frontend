@@ -1,6 +1,9 @@
 
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { JavascriptLoaderService } from '../Services/javascript-loader.service';
+import { AuhenticationService } from 'src/app/services/auhentication.service';
+import { Router } from '@angular/router';
+import { storage } from 'src/system.constant';
 declare var jQuery: any;
 
 @Component({
@@ -10,7 +13,9 @@ declare var jQuery: any;
 })
 export class TopHeaderComponent implements OnInit, AfterViewInit {
 
-  constructor(private dynamicScriptLoader: JavascriptLoaderService) { }
+  constructor(private dynamicScriptLoader: JavascriptLoaderService
+    , private authService: AuhenticationService
+  , private route: Router) { }
 
   ngOnInit() { }
 
@@ -50,6 +55,13 @@ export class TopHeaderComponent implements OnInit, AfterViewInit {
     this.dynamicScriptLoader.load('JQuery-2.1.1', 'metisMenu').then(data => {
       // Script Loaded Successfully
     }).catch(error => console.log(error));
+  }
+
+  private logoutSystem(ev: Event) {
+    this.authService.logout();
+    localStorage.removeItem(storage.loginStoarge);
+    this.route.navigateByUrl('/login');
+
   }
 
 }

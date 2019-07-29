@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../Model/user.model';
 import { environment } from 'src/environments/environment';
+import { storage } from 'src/system.constant';
 
 
 @Injectable({
@@ -17,7 +18,7 @@ export class AuhenticationService {
 
   constructor(private http: HttpClient) {
     this.context = environment.API_URL;
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem(storage.loginStoarge)));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -37,14 +38,13 @@ export class AuhenticationService {
     return this.currentUserSubject.value;
   }
 
-  login(email: string, password: string) {
-    debugger;
+  login(email: string, password: string) {    
     return this.http.post<any>(this.context + 'users/authenticate', { email, password }, { headers : this.createAuthorizationHeader() } )
       .pipe(map(user => {
-        // login successful if there's a jwt token in the response
+        // login successful if there's a jwt token in the response        
         if (user && user.token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem(storage.loginStoarge, JSON.stringify(user));
           this.currentUserSubject.next(user);
         }
 
@@ -54,7 +54,7 @@ export class AuhenticationService {
 
   logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem(storage.loginStoarge);
     this.currentUserSubject.next(null);
   }
 
