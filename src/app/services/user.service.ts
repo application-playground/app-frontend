@@ -17,7 +17,8 @@ export class UserService {
   }
 
   register(user: User) {
-    return this.http.post(`/users/register`, user);
+    debugger;
+    return this.http.post(this.context + 'users/register', user);
   }
 
   delete(id: number) {
