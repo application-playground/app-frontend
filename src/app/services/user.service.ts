@@ -1,5 +1,6 @@
+import { PageModel } from 'src/app/Model/page.model';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../Model/user.model';
 import { environment } from 'src/environments/environment';
 
@@ -16,8 +17,18 @@ export class UserService {
     return this.http.get<User[]>(`/users`);
   }
 
-  register(user: User) {
-    debugger;
+  getRegistrationData(requestURL: string, page: PageModel) {    
+    return this.http.get(this.context + requestURL, {
+        params: new HttpParams()
+            // .set('courseId', courseId.toString())
+            // .set('filter', filter)
+            // .set('sortOrder', sortOrder)
+            .set('pageNumber', page.pageNumber.toString())
+            .set('pageSize', page.size.toString())
+    });
+  }
+
+  register(user: User) {    
     return this.http.post(this.context + 'users/register', user);
   }
 
