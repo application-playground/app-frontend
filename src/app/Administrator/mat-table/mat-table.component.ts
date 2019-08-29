@@ -14,7 +14,7 @@ declare var jQuery: any;
 export class MatTableComponent implements OnInit, AfterViewInit {
 
   MyDataSource: any;
-  displayedColumns: string[] = ['name'];
+  displayedColumns: string[] = ['name', 'email'];
   breadCrumbSource: any[] = [];
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   page: PageModel = new PageModel();
