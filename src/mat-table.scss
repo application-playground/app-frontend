@@ -71,7 +71,7 @@ td {
 // .mat-select-panel { background-color: rgb(243, 243, 244) !important;  }
 
 .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) { 
-    color: rgb(176, 177, 178) !important; 
+    color: white !important; 
     background-color: gray !important; 
 }
 
@@ -82,7 +82,7 @@ td {
 
 .mat-form-field-flex { 
     color: red !important;
-    border-bottom: 1px solid red !important;
+    border-bottom: 1px solid darkgray !important;
 }
 .mat-icon-button .mat-button-wrapper>* { color: rgb(176, 177, 178) !important; }
  .mat-paginator-outer-container { background-color: rgb(247, 247, 247) !important; }
@@ -102,4 +102,13 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
     color: darkgray !important;
+ }
+
+ .mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option {
+    font-size: inherit;
+    line-height: 3em;
+    height: 3em;
+    background-color: rgb(169, 169, 169);
+    color: rgb(255, 255, 255) !important;
+    font-weight: 700 !important;
  }
