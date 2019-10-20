@@ -1,6 +1,6 @@
 import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { BreadCrumb } from 'src/app/Model/breadcrumb.model';
 import { PageModel } from 'src/app/Model/page.model';
@@ -16,7 +16,7 @@ export class MatTableComponent implements OnInit, AfterViewInit {
   MyDataSource: any;
   displayedColumns: string[] = ['name', 'email'];
   breadCrumbSource: any[] = [];
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   page: PageModel = new PageModel();
 
   constructor(private userService: UserService) {
@@ -25,11 +25,17 @@ export class MatTableComponent implements OnInit, AfterViewInit {
     this.breadCrumbSource.push(new BreadCrumb('Gallery', '', false));
     this.breadCrumbSource.push(new BreadCrumb('Lightbox', '', true));
 
-    this.page.size = 20;
-    this.page.pageNumber = 1;
   }
 
   ngOnInit() {
+    this.page.size = 5;
+    this.page.pageNumber = 0;
+    this.RenderDataTable();
+  }
+
+  pageEvent(ev: PageEvent) {
+    this.page.pageNumber = ev.pageIndex;
+    this.page.size = ev.pageSize;
     this.RenderDataTable();
   }
 
@@ -38,11 +44,15 @@ export class MatTableComponent implements OnInit, AfterViewInit {
 
       if (!res['error']) {
 
-        this.MyDataSource = new MatTableDataSource();
-        this.MyDataSource.data = res["message"];
         this.page.totalElements = res['totalElement'];
-        this.MyDataSource.paginator = this.paginator;
-        console.log(this.MyDataSource.data);
+        this.page.totalPages = res['pages'];
+        this.page.numberOfElements = res['totalElement'];
+
+        this.MyDataSource = new MatTableDataSource();
+        this.MyDataSource.data = res['message'];
+
+
+        // console.log(this.MyDataSource.data);
       }
     },
       error => {
@@ -50,6 +60,11 @@ export class MatTableComponent implements OnInit, AfterViewInit {
       });
   }
 
-  ngAfterViewInit() { }
+  ngAfterViewInit() {
+
+    if (this.MyDataSource != undefined) {
+      this.MyDataSource.paginator = this.paginator;
+    }
+   }
 }
 
