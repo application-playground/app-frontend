@@ -3536,7 +3536,8 @@ body.body-small .footer.fixed {
 .panel-heading h2 {
   margin-bottom: 5px;
 }
-/* TABLES */
+
+/* TABLES
 .table-bordered {
   border: 1px solid #EBEBEB;
 }
@@ -3567,7 +3568,9 @@ body.body-small .footer.fixed {
   line-height: 1.42857;
   padding: 8px;
   vertical-align: top;
-}
+} */
+
+
 /* PANELS */
 .panel.blank-panel {
   background: none;

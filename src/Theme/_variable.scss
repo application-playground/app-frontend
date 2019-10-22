@@ -1,0 +1,29 @@
+
+$color-primary: rgb(47, 64, 80);
+$color-secondary: rgb(56, 179, 148);
+$color-white: #FFFFFF;
+
+$global-font-family: Roboto,"Helvetica Neue",sans-serif;
+
+$mat-table-font-family: Roboto,"Helvetica Neue",sans-serif;
+$mat-table-background: White;
+
+$mat-cell-font-size: 14px;
+$mat-table-cell-font-color: $color-primary;
+$mat-cell-border-bottom-size: 2px;
+$mat-cell-border-bottom-color: lightgray;
+
+$mat-header-cell-font-size: 14px;
+$mat-table-header-cell-font-color: gray;
+$mat-header-cell-font-weight: 500;
+$mat-header-cell-padding: 18px 5px 5px 25px !important;
+$mat-header-border-bottom-size: 2px;
+$mat-header-border-bottom-color: lightgray;
+
+$mat-footer-cell-font-size: 14px;
+$mat-footer-cell-font-color: #FFF;
+$mat-footer-border-bottom-size: 2px;
+$mat-footer-border-bottom-color: lightgray;
+
+$mat-paginator-background: rgba(47, 64, 80,0.7);
+$mat-paginator-font-size: 12px;

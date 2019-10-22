@@ -36,7 +36,7 @@ export class MatTableComponent implements OnInit, AfterViewInit {
   pageEvent(ev: PageEvent) {
     this.page.pageNumber = ev.pageIndex;
     this.page.size = ev.pageSize;
-    this.RenderDataTable();
+    // this.RenderDataTable();
   }
 
   RenderDataTable() {
