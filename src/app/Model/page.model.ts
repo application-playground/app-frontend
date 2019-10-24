@@ -9,4 +9,8 @@ export class PageModel {
     pageNumber = 0;
     // number of elements per page
     numberOfElements = 0;
+    // Search Filter
+    search = " ";
+    // Sorting Fields
+    sortFields = undefined;
 }

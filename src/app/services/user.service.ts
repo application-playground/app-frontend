@@ -19,13 +19,17 @@ export class UserService {
 
   getRegistrationData(requestURL: string, page: PageModel) {    
     return this.http.get(this.context + requestURL, {
-        params: new HttpParams()
-            // .set('courseId', courseId.toString())
-            // .set('filter', filter)
-            // .set('sortOrder', sortOrder)
-            .set('pageNumber', page.pageNumber.toString())
-            .set('pageSize', page.size.toString())
+      params: new HttpParams()
+        // .set('courseId', courseId.toString())
+        .set('pageNumber', page.pageNumber.toString())
+        .set('pageSize', page.size.toString())
+        .set('search', page.search)
+        .set('sortOrder', page.sortFields)
     });
+  }
+
+  exportCSV(requestURL: string) {    
+    return this.http.get(this.context + requestURL);
   }
 
   register(user: User) {    

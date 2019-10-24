@@ -1,6 +1,10 @@
 
 $color-primary: rgb(47, 64, 80);
+$color-primary-light: rgba(47,64,80,0.7);
+
 $color-secondary: rgb(56, 179, 148);
+$color-secondary-light: rgba(56, 179, 148, 0.2);
+
 $color-white: #FFFFFF;
 
 $global-font-family: Roboto,"Helvetica Neue",sans-serif;
@@ -14,7 +18,8 @@ $mat-cell-border-bottom-size: 2px;
 $mat-cell-border-bottom-color: lightgray;
 
 $mat-header-cell-font-size: 14px;
-$mat-table-header-cell-font-color: gray;
+$mat-header-background: $color-primary-light;
+$mat-table-header-cell-font-color: $color-white;
 $mat-header-cell-font-weight: 500;
 $mat-header-cell-padding: 18px 5px 5px 25px !important;
 $mat-header-border-bottom-size: 2px;
@@ -25,5 +30,9 @@ $mat-footer-cell-font-color: #FFF;
 $mat-footer-border-bottom-size: 2px;
 $mat-footer-border-bottom-color: lightgray;
 
-$mat-paginator-background: rgba(47, 64, 80,0.7);
+$mat-paginator-background: $color-primary-light;
 $mat-paginator-font-size: 12px;
+
+
+$mat-form-field-font-color: $color-primary-light;
+$mat-form-field-font-size: 16px;

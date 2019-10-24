@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
+@import "../variable";
 /*
  *
  *   INSPINIA - Responsive Admin Theme
@@ -3701,7 +3702,7 @@ img.circle-border {
   cursor: move;
 }
 .breadcrumb {
-  background-color: #ffffff;
+  background-color: inherit !important;
   padding: 0;
   margin-bottom: 0;
 }
@@ -3847,7 +3848,7 @@ table.table-mail tr td {
   background-color: #f3f3f4;
 }
 .white-bg {
-  background-color: #ffffff;
+  background-color: $color-secondary-light !important;
 }
 .navy-bg {
   background-color: #1ab394;
