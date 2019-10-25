@@ -22,6 +22,10 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { PopupDemoComponent } from './Administrator/popup-demo/popup-demo.component';
+import { AddRecordComponent } from './Administrator/add-record/add-record.component';
+
+import { ModalModule, BsModalRef, BsModalService } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,9 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     EmptyPageComponent,
     TableDemoComponent,
-    MatTableComponent
+    MatTableComponent,
+    PopupDemoComponent,
+    AddRecordComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +45,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatNativeDateModule,
     AppRoutingModule,
     MaterialModule,
+    ModalModule.forRoot(),
     ToastrModule.forRoot({
       closeButton: true,
       disableTimeOut: false,
@@ -50,8 +57,10 @@ import { ToastrModule } from 'ngx-toastr';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    BsModalService, BsModalRef
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PopupDemoComponent, AddRecordComponent]
 })
 export class AppModule { }
 

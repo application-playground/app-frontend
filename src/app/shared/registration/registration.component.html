@@ -30,11 +30,11 @@
           <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group">        
         <div class="checkbox i-checks"><label> <input type="checkbox" formControlName="termsConditions"
-              [ngModel]="termsConditions"><i></i> Agree the terms and policy </label></div>
+          [(ngModel)]="termsConditions"><i></i> Agree the terms and policy </label></div>
       </div>
-      <button type="submit" [disabled]="submitted && loading && termsConditions"
+      <button type="submit" [disabled]="submitted && loading && !termsConditions"
         class="btn btn-primary block full-width m-b">
         <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
         Register</button>

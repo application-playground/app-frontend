@@ -1,3 +1,4 @@
+import { AddRecordComponent } from './../add-record/add-record.component';
 import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
@@ -6,6 +7,9 @@ import { BreadCrumb } from 'src/app/Model/breadcrumb.model';
 import { PageModel } from 'src/app/Model/page.model';
 import { MatSort } from '@angular/material/sort';
 import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
+import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 
 declare var jQuery: any;
 @Component({
@@ -19,11 +23,15 @@ export class MatTableComponent implements OnInit, AfterViewInit {
   exportDataSource: any;
   displayedColumns: string[] = ['name', 'email'];
   breadCrumbSource: any[] = [];
+
+  modalRef: BsModalRef;  
+  subscription = new Subscription();
+
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   page: PageModel = new PageModel();
   @ViewChild(MatSort, { static : false }) sort: MatSort;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, public dialog: MatDialog, private modalService: BsModalService) {
     // [{ name: 'Home', URL : 'template' }, { name: 'Gallery', URL : '' }, { name: 'Lightbox', URL : '' , active: true }]
     this.breadCrumbSource.push(new BreadCrumb('Home', 'template', false));
     this.breadCrumbSource.push(new BreadCrumb('Gallery', '', false));
@@ -114,6 +122,27 @@ export class MatTableComponent implements OnInit, AfterViewInit {
     // this.MyDataSource.filter = value.trim().toLocaleLowerCase();
     this.page.search = value.trim().toLocaleLowerCase();
     this.RenderDataTable();
+  }
+
+  addRercord() {
+
+    // { class: 'modal-dialog-centered modal-dialog', animated: true, keyboard: false, backdrop: 'static', ignoreBackdropClick: true }
+
+    // const initialState = { list: data, updateName: true };
+    // { initialState, keyboard: false, backdrop: 'static', animated: true, ignoreBackdropClick: true })
+
+    const initialState = { modelTitle: 'Add Block Informations' };
+    this.modalRef = this.modalService.show(AddRecordComponent, { initialState, backdrop: 'static', keyboard: false });
+    this.subscription = this.modalService.onHide.subscribe(data => {
+      if (data === 'true') {
+          // TODO Here; Close Popups          
+      }
+      this.subscription.unsubscribe();
+    });    
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
 

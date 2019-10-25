@@ -33,7 +33,7 @@
               "src/Theme/css/plugins/iCheck/custom.css",
               "src/Theme/css/plugins/dataTables/datatables.min.css",
               "src/Theme/css/animate.css",
-              "src/Theme/css/style.css",
+              "src/Theme/css/style.scss",
               "./node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
