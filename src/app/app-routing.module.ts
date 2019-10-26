@@ -10,6 +10,7 @@ import { HTTP500Component } from './shared/Error/http500/http500.component';
 import { EmptyPageComponent } from './Administrator/empty-page/empty-page.component';
 import { TableDemoComponent } from './Administrator/table-demo/table-demo.component';
 import { AuthGuard } from './security/auth.guard';
+import { BlockComponent } from './Administrator/block/block.component';
 
 const routes: Routes = [
   // Super-admin routes goes here
@@ -40,7 +41,8 @@ const routes: Routes = [
     children: [
       { path: 'empty', component: EmptyPageComponent },    
       { path: 'demo-table', component: TableDemoComponent },
-      { path: 'mat-table', component: MatTableComponent }
+      { path: 'mat-table', component: MatTableComponent },
+      { path: 'block', component: BlockComponent }
       // { path: 'forms', loadChildren: './Layout/Content-Page/form-section/form-section.module#FormSectionModule' },
       // { path: 'app-view', loadChildren: './Layout/Content-Page/app-view/app-view.module#AppViewModule' },
       // { path: 'other-view', loadChildren: './Layout/Content-Page/other-page/other-page.module#OtherPageModule' },

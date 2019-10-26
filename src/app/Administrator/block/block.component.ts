@@ -1,5 +1,4 @@
 import { AddRecordComponent } from './../add-record/add-record.component';
-import { UserService } from 'src/app/services/user.service';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -10,20 +9,21 @@ import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { BlockMasterService } from 'src/app/services/blockMaster.service';
 
-declare var jQuery: any;
 @Component({
-  selector: 'app-mat-table',
-  templateUrl: './mat-table.component.html',
-  styleUrls: ['./mat-table.component.scss']
+  selector: 'app-block',
+  templateUrl: './block.component.html',
+  styleUrls: ['./block.component.scss']
 })
-export class MatTableComponent implements OnInit, AfterViewInit {
+export class BlockComponent implements OnInit, AfterViewInit {
 
-  constructor(private userService: UserService, public dialog: MatDialog, private modalService: BsModalService) {
+
+  constructor(private blockMasterService: BlockMasterService, public dialog: MatDialog, private modalService: BsModalService) {
     // [{ name: 'Home', URL : 'template' }, { name: 'Gallery', URL : '' }, { name: 'Lightbox', URL : '' , active: true }]
     this.breadCrumbSource.push(new BreadCrumb('Home', 'template', false));
-    this.breadCrumbSource.push(new BreadCrumb('Gallery', '', false));
-    this.breadCrumbSource.push(new BreadCrumb('Lightbox', '', true));
+    this.breadCrumbSource.push(new BreadCrumb('Block', '', true));
+    // this.breadCrumbSource.push(new BreadCrumb('Lightbox', '', true));
 
   }
 
@@ -39,7 +39,7 @@ export class MatTableComponent implements OnInit, AfterViewInit {
   page: PageModel = new PageModel();
   @ViewChild(MatSort, { static : false }) sort: MatSort;
   sortType = 'desc';
-  sortParam: any = 'name';
+  sortParam: any = 'block';
 
   ngOnInit() {
     this.page.size = 10;
@@ -55,10 +55,10 @@ export class MatTableComponent implements OnInit, AfterViewInit {
 
   RenderDataTable() {
     if (this.page.sortFields === undefined) {
-      this.page.sortFields = 'name,desc';
+      this.page.sortFields = 'block,desc';
     }
 
-    this.userService.getRegistrationData('users/list', this.page).subscribe((res) => {
+    this.blockMasterService.getBlockPagination('block/list', this.page).subscribe((res) => {
 
       if (!res['error']) {
 
@@ -104,7 +104,7 @@ export class MatTableComponent implements OnInit, AfterViewInit {
 
   exportCsv() {
     let exportData: any;
-    this.userService.exportCSV('users/exportCSV').subscribe((res) => {
+    this.blockMasterService.exportCSV('block/exportCSV').subscribe((res) => {
 
         this.exportDataSource = new MatTableDataSource();
         this.exportDataSource.data = res['message'];
@@ -112,7 +112,7 @@ export class MatTableComponent implements OnInit, AfterViewInit {
     },
       error => { console.log('There was an error while retrieving Data !!!' + error); },
       () => {
-        new Angular5Csv(exportData, 'USER_Information_' + new Date().toString());
+        new Angular5Csv(exportData, 'Block_Information_' + new Date().toString());
         /* TODO Here; */
 }
     );
@@ -156,5 +156,5 @@ export class MatTableComponent implements OnInit, AfterViewInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-}
 
+}

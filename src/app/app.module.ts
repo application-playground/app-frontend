@@ -26,6 +26,7 @@ import { PopupDemoComponent } from './Administrator/popup-demo/popup-demo.compon
 import { AddRecordComponent } from './Administrator/add-record/add-record.component';
 
 import { ModalModule, BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { BlockComponent } from './Administrator/block/block.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ModalModule, BsModalRef, BsModalService } from 'ngx-bootstrap';
     TableDemoComponent,
     MatTableComponent,
     PopupDemoComponent,
-    AddRecordComponent
+    AddRecordComponent,
+    BlockComponent
   ],
   imports: [
     BrowserModule,

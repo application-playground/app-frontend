@@ -14,6 +14,7 @@ import { HTTP500Component } from './Error/http500/http500.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DeleteComponent } from '../Administrator/shared/delete/delete.component';
 
 declare var jQuery: any;
 
@@ -27,7 +28,7 @@ declare var jQuery: any;
     , ForgetPasswordComponent
     , HTTP404Component
     , HTTP500Component
-    , BreadcrumbComponent
+    , BreadcrumbComponent, DeleteComponent
   ],
   imports: [
     CommonModule,
