@@ -27,6 +27,8 @@ import { AddRecordComponent } from './Administrator/add-record/add-record.compon
 
 import { ModalModule, BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { BlockComponent } from './Administrator/block/block.component';
+import { DeleteComponent } from './shared/delete/delete.component';
+import { FloorComponent } from './Administrator/floor/floor.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { BlockComponent } from './Administrator/block/block.component';
     MatTableComponent,
     PopupDemoComponent,
     AddRecordComponent,
-    BlockComponent
+    BlockComponent,
+    FloorComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,7 @@ import { BlockComponent } from './Administrator/block/block.component';
     BsModalService, BsModalRef
   ],
   bootstrap: [AppComponent],
-  entryComponents: [PopupDemoComponent, AddRecordComponent]
+  entryComponents: [PopupDemoComponent, AddRecordComponent, DeleteComponent]
 })
 export class AppModule { }
 

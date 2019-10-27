@@ -1,0 +1,46 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <div class="row">
+      <div class="col-md-11">
+		<h3 class="modal-title" id="exampleModalLabel"> 
+			<!-- <i class="fa fa-times"></i>  -->
+			{{modelTitle}} </h3>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+
+    <div class="row">
+      <div class="col-lg-4" style="text-align: center !important;color: maroon;">
+        <div class="icon-box">
+          <i class="fa fa-times fa-4x"></i>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <h4 class="modal-title">Are you sure?</h4>
+        <p>Do you really want to delete these records? This process cannot be undone.</p>
+      </div>
+
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-3">
+        <button type="button" class="btn btn-info btn-block" data-dismiss="modal" (click)="close()">Cancel</button>
+      </div>
+      <div class="col-md-3">
+        <button type="button" class="btn btn-danger btn-block" (click)="deleteInformation($event);">Delete</button>
+	  </div>
+	  <div class="col-md-2"></div>
+    </div>
+
+
+  </div>
+  <!-- <div class="modal-footer">
+	</div> -->
+</div>

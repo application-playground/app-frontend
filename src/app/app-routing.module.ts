@@ -11,6 +11,7 @@ import { EmptyPageComponent } from './Administrator/empty-page/empty-page.compon
 import { TableDemoComponent } from './Administrator/table-demo/table-demo.component';
 import { AuthGuard } from './security/auth.guard';
 import { BlockComponent } from './Administrator/block/block.component';
+import { FloorComponent } from './Administrator/floor/floor.component';
 
 const routes: Routes = [
   // Super-admin routes goes here
@@ -42,7 +43,8 @@ const routes: Routes = [
       { path: 'empty', component: EmptyPageComponent },    
       { path: 'demo-table', component: TableDemoComponent },
       { path: 'mat-table', component: MatTableComponent },
-      { path: 'block', component: BlockComponent }
+      { path: 'block', component: BlockComponent },
+      { path: 'floor', component: FloorComponent }
       // { path: 'forms', loadChildren: './Layout/Content-Page/form-section/form-section.module#FormSectionModule' },
       // { path: 'app-view', loadChildren: './Layout/Content-Page/app-view/app-view.module#AppViewModule' },
       // { path: 'other-view', loadChildren: './Layout/Content-Page/other-page/other-page.module#OtherPageModule' },

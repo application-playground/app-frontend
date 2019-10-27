@@ -1,36 +1,36 @@
-import { AddRecordComponent } from './../add-record/add-record.component';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { BreadCrumb } from 'src/app/Model/breadcrumb.model';
+import { Subscription } from 'rxjs';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { PageModel } from 'src/app/Model/page.model';
 import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
-import { MatDialog } from '@angular/material/dialog';
-import { Subscription } from 'rxjs';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap';
-import { BlockMasterService } from 'src/app/services/blockMaster.service';
+import { AddRecordComponent } from '../add-record/add-record.component';
 import { DeleteComponent } from 'src/app/shared/delete/delete.component';
+import { FloorService } from 'src/app/services/floor.service';
 
 @Component({
-  selector: 'app-block',
-  templateUrl: './block.component.html',
-  styleUrls: ['./block.component.scss']
+  selector: 'app-floor',
+  templateUrl: './floor.component.html',
+  styleUrls: ['./floor.component.scss']
 })
-export class BlockComponent implements OnInit, AfterViewInit {
+export class FloorComponent implements OnInit, AfterViewInit {
 
 
-  constructor(private blockMasterService: BlockMasterService, public dialog: MatDialog, private modalService: BsModalService) {
+  constructor(private floorService: FloorService, public dialog: MatDialog, private modalService: BsModalService) {
     // [{ name: 'Home', URL : 'template' }, { name: 'Gallery', URL : '' }, { name: 'Lightbox', URL : '' , active: true }]
     this.breadCrumbSource.push(new BreadCrumb('Home', 'template', false));
-    this.breadCrumbSource.push(new BreadCrumb('Block', '', true));
+    this.breadCrumbSource.push(new BreadCrumb('Floor', '', true));
     // this.breadCrumbSource.push(new BreadCrumb('Lightbox', '', true));
 
   }
 
   MyDataSource: any;
   exportDataSource: any;
-  displayedColumns: string[] = ['position', 'block', 'detail', 'deleteRecord'];
+  displayedColumns: string[] = ['position', 'name', 'detail', 'deleteRecord'];
   breadCrumbSource: any[] = [];
 
   modalRef: BsModalRef;
@@ -40,7 +40,7 @@ export class BlockComponent implements OnInit, AfterViewInit {
   page: PageModel = new PageModel();
   @ViewChild(MatSort, { static : false }) sort: MatSort;
   sortType = 'asc';
-  sortParam: any = 'block';
+  sortParam: any = 'name';
 
   ngOnInit() {
     this.page.size = 10;
@@ -56,10 +56,10 @@ export class BlockComponent implements OnInit, AfterViewInit {
 
   RenderDataTable() {
     if (this.page.sortFields === undefined) {
-      this.page.sortFields = 'block,asc';
+      this.page.sortFields = 'name,asc';
     }
 
-    this.blockMasterService.getBlockPagination('block/list', this.page).subscribe((res) => {
+    this.floorService.getFloorPagination('floor/list', this.page).subscribe((res) => {
 
       if (!res['error']) {
 
@@ -105,7 +105,7 @@ export class BlockComponent implements OnInit, AfterViewInit {
 
   exportCsv() {
     let exportData: any;
-    this.blockMasterService.exportCSV('block/exportCSV').subscribe((res) => {
+    this.floorService.exportCSV('floor/exportCSV').subscribe((res) => {
 
         this.exportDataSource = new MatTableDataSource();
         this.exportDataSource.data = res['message'];
@@ -113,7 +113,7 @@ export class BlockComponent implements OnInit, AfterViewInit {
     },
       error => { console.log('There was an error while retrieving Data !!!' + error); },
       () => {
-        new Angular5Csv(exportData, 'Block_Information_' + new Date().toString());
+        new Angular5Csv(exportData, 'Floor_Information_' + new Date().toString());
         /* TODO Here; */
 }
     );
@@ -132,7 +132,7 @@ export class BlockComponent implements OnInit, AfterViewInit {
     // const initialState = { list: data, updateName: true };
     // { initialState, keyboard: false, backdrop: 'static', animated: true, ignoreBackdropClick: true })
 
-    const initialState = { modelTitle: 'Add Society Informations' };
+    const initialState = { modelTitle: 'Add Floor Informations' };
     this.modalRef = this.modalService.show(AddRecordComponent, { initialState, backdrop: 'static', keyboard: false });
     this.subscription = this.modalService.onHide.subscribe(data => {
       if (data === 'true') {
@@ -144,7 +144,7 @@ export class BlockComponent implements OnInit, AfterViewInit {
   }
 
   editRecord(ev: Event, modelObject: any) {
-    const initialState = { modelTitle: 'Update Society Informations' };
+    const initialState = { modelTitle: 'Update Floor Informations' };
     this.modalRef = this.modalService.show(AddRecordComponent, { initialState, backdrop: 'static', keyboard: false });
     this.subscription = this.modalService.onHide.subscribe(data => {
       if (data === 'true') {
@@ -155,7 +155,7 @@ export class BlockComponent implements OnInit, AfterViewInit {
   }
 
   deleteRecord(ev: Event, modelObject: any) {
-    const initialState = { modelTitle: 'Delete Block Informations' };
+    const initialState = { modelTitle: 'Delete Floor Informations' };
     this.modalRef = this.modalService.show(DeleteComponent, { initialState, backdrop: 'static', keyboard: false });
     this.subscription = this.modalService.onHide.subscribe(data => {
       if (data === 'true') {

@@ -53,7 +53,28 @@
 
       <!-- Block Master -->
       <li>
-          <a [routerLink]="['/template/block']" ><i class="fa fa-building-o"></i> <span class="nav-label">Block Information</span></a>
+          <a [routerLink]="['/template/block']" ><i class="fa fa-sitemap"></i> <span class="nav-label">Block Information </span><span class="fa arrow"></span></a>
+          
+          <ul class="nav nav-second-level collapse">
+              <!-- <li>
+                  <a href="#">Third Level <span class="fa arrow"></span></a>
+                  <ul class="nav nav-third-level">
+                      <li>
+                          <a href="#">Third Level Item</a>
+                      </li>
+                      <li>
+                          <a href="#">Third Level Item</a>
+                      </li>
+                      <li>
+                          <a href="#">Third Level Item</a>
+                      </li>
+
+                  </ul>
+              </li> -->
+              <li>
+                  <a [routerLink]="['/template/floor']" ><i class="fa fa-building-o"></i> <span class="nav-label">Floor Information</span></a>
+              </li>              
+          </ul>
         </li>
 
       <!-- layouts -->
