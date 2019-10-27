@@ -22,9 +22,7 @@ export class EmptyPageComponent implements OnInit {
 
      //[{ name: 'Home', URL : 'template' }, { name: 'Gallery', URL : '' }, { name: 'Lightbox', URL : '' , active: true }]
     this.breadCrumbSource.push(new BreadCrumb('Home','template',false));
-    this.breadCrumbSource.push(new BreadCrumb('Gallery','',false));
-    this.breadCrumbSource.push(new BreadCrumb('Lightbox', '', true));
-    
+    this.breadCrumbSource.push(new BreadCrumb('Dashboard','',true));    
   }
   
   openDialog() {
